@@ -1,0 +1,7 @@
+begin
+    int a;
+    string b;
+    a = 10;
+    b = "test";
+    a = a + b;
+end

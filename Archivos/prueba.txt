@@ -1,0 +1,13 @@
+begin
+    int espacio_dis;
+    int espacio_ocup;
+    int c;
+    espacio_dis = 5;
+    espacio_ocup = 10;
+    if (espacio_dis < espacio_ocup) {
+        gate close;
+    } else {
+         gate open;
+    }
+    return espacio_dis;
+end

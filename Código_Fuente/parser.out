@@ -1,0 +1,2071 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMENT
+    FALSE
+    TRUE
+    VOID
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> BEGIN statement_list END
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> declaration
+Rule 5     statement -> assignment_expression SEMICOLON
+Rule 6     statement -> if_statement
+Rule 7     statement -> for_statement
+Rule 8     statement -> parking_command
+Rule 9     statement -> return_statement
+Rule 10    statement -> print_statement
+Rule 11    statement -> SEMICOLON
+Rule 12    declaration -> type_specifier IDENTIFIER SEMICOLON
+Rule 13    type_specifier -> INT
+Rule 14    type_specifier -> FLOAT
+Rule 15    type_specifier -> BOOLEAN
+Rule 16    type_specifier -> STRING
+Rule 17    assignment_expression -> IDENTIFIER EQUALS expression
+Rule 18    if_statement -> IF LPAREN expression RPAREN compound_statement
+Rule 19    if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+Rule 20    for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+Rule 21    expression_opt -> expression
+Rule 22    expression_opt -> empty
+Rule 23    assignment_expression_opt -> assignment_expression
+Rule 24    assignment_expression_opt -> empty
+Rule 25    empty -> <empty>
+Rule 26    parking_command -> GATE OPEN SEMICOLON
+Rule 27    parking_command -> GATE CLOSE SEMICOLON
+Rule 28    parking_command -> ONOFF SEMICOLON
+Rule 29    parking_command -> PARK SEMICOLON
+Rule 30    parking_command -> EXIT SEMICOLON
+Rule 31    parking_command -> SENSOR SEMICOLON
+Rule 32    return_statement -> RETURN expression SEMICOLON
+Rule 33    print_statement -> PRINT LPAREN expression RPAREN SEMICOLON
+Rule 34    expression -> additive_expression
+Rule 35    expression -> relational_expression
+Rule 36    expression -> BOOLEAN_LITERAL
+Rule 37    expression -> STRING_LITERAL
+Rule 38    relational_expression -> additive_expression relational_op additive_expression
+Rule 39    relational_op -> LT
+Rule 40    relational_op -> LE
+Rule 41    relational_op -> GT
+Rule 42    relational_op -> GE
+Rule 43    relational_op -> EQ
+Rule 44    relational_op -> NE
+Rule 45    additive_expression -> multiplicative_expression
+Rule 46    additive_expression -> additive_expression PLUS multiplicative_expression
+Rule 47    additive_expression -> additive_expression MINUS multiplicative_expression
+Rule 48    multiplicative_expression -> primary_expression
+Rule 49    multiplicative_expression -> multiplicative_expression TIMES primary_expression
+Rule 50    multiplicative_expression -> multiplicative_expression DIVIDE primary_expression
+Rule 51    primary_expression -> IDENTIFIER
+Rule 52    primary_expression -> NUMBER
+Rule 53    primary_expression -> FLOAT_NUMBER
+Rule 54    primary_expression -> BOOLEAN_LITERAL
+Rule 55    primary_expression -> STRING_LITERAL
+Rule 56    primary_expression -> LPAREN expression RPAREN
+Rule 57    compound_statement -> LBRACE statement_list RBRACE
+
+Terminals, with rules where they appear
+
+BEGIN                : 1
+BOOLEAN              : 15
+BOOLEAN_LITERAL      : 36 54
+CLOSE                : 27
+COMMENT              : 
+DIVIDE               : 50
+ELSE                 : 19
+END                  : 1
+EQ                   : 43
+EQUALS               : 17
+EXIT                 : 30
+FALSE                : 
+FLOAT                : 14
+FLOAT_NUMBER         : 53
+FOR                  : 20
+GATE                 : 26 27
+GE                   : 42
+GT                   : 41
+IDENTIFIER           : 12 17 51
+IF                   : 18 19
+INT                  : 13
+LBRACE               : 57
+LE                   : 40
+LPAREN               : 18 19 20 33 56
+LT                   : 39
+MINUS                : 47
+NE                   : 44
+NUMBER               : 52
+ONOFF                : 28
+OPEN                 : 26
+PARK                 : 29
+PLUS                 : 46
+PRINT                : 33
+RBRACE               : 57
+RETURN               : 32
+RPAREN               : 18 19 20 33 56
+SEMICOLON            : 5 11 12 20 26 27 28 29 30 31 32 33
+SENSOR               : 31
+STRING               : 16
+STRING_LITERAL       : 37 55
+TIMES                : 49
+TRUE                 : 
+VOID                 : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+additive_expression  : 34 38 38 46 47
+assignment_expression : 5 23
+assignment_expression_opt : 20 20
+compound_statement   : 18 19 19 20
+declaration          : 4
+empty                : 22 24
+expression           : 17 18 19 21 32 33 56
+expression_opt       : 20
+for_statement        : 7
+if_statement         : 6
+multiplicative_expression : 45 46 47 49 50
+parking_command      : 8
+primary_expression   : 48 49 50
+print_statement      : 10
+program              : 0
+relational_expression : 35
+relational_op        : 38
+return_statement     : 9
+statement            : 2 3
+statement_list       : 1 2 57
+type_specifier       : 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . BEGIN statement_list END
+
+    BEGIN           shift and go to state 2
+
+    program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> BEGIN . statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment_expression SEMICOLON
+    (6) statement -> . if_statement
+    (7) statement -> . for_statement
+    (8) statement -> . parking_command
+    (9) statement -> . return_statement
+    (10) statement -> . print_statement
+    (11) statement -> . SEMICOLON
+    (12) declaration -> . type_specifier IDENTIFIER SEMICOLON
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (18) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (19) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (20) for_statement -> . FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (26) parking_command -> . GATE OPEN SEMICOLON
+    (27) parking_command -> . GATE CLOSE SEMICOLON
+    (28) parking_command -> . ONOFF SEMICOLON
+    (29) parking_command -> . PARK SEMICOLON
+    (30) parking_command -> . EXIT SEMICOLON
+    (31) parking_command -> . SENSOR SEMICOLON
+    (32) return_statement -> . RETURN expression SEMICOLON
+    (33) print_statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (13) type_specifier -> . INT
+    (14) type_specifier -> . FLOAT
+    (15) type_specifier -> . BOOLEAN
+    (16) type_specifier -> . STRING
+
+    SEMICOLON       shift and go to state 7
+    IDENTIFIER      shift and go to state 14
+    IF              shift and go to state 15
+    FOR             shift and go to state 16
+    GATE            shift and go to state 17
+    ONOFF           shift and go to state 18
+    PARK            shift and go to state 19
+    EXIT            shift and go to state 20
+    SENSOR          shift and go to state 21
+    RETURN          shift and go to state 22
+    PRINT           shift and go to state 23
+    INT             shift and go to state 24
+    FLOAT           shift and go to state 25
+    BOOLEAN         shift and go to state 26
+    STRING          shift and go to state 27
+
+    statement_list                 shift and go to state 3
+    statement                      shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment_expression          shift and go to state 6
+    if_statement                   shift and go to state 8
+    for_statement                  shift and go to state 9
+    parking_command                shift and go to state 10
+    return_statement               shift and go to state 11
+    print_statement                shift and go to state 12
+    type_specifier                 shift and go to state 13
+
+state 3
+
+    (1) program -> BEGIN statement_list . END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment_expression SEMICOLON
+    (6) statement -> . if_statement
+    (7) statement -> . for_statement
+    (8) statement -> . parking_command
+    (9) statement -> . return_statement
+    (10) statement -> . print_statement
+    (11) statement -> . SEMICOLON
+    (12) declaration -> . type_specifier IDENTIFIER SEMICOLON
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (18) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (19) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (20) for_statement -> . FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (26) parking_command -> . GATE OPEN SEMICOLON
+    (27) parking_command -> . GATE CLOSE SEMICOLON
+    (28) parking_command -> . ONOFF SEMICOLON
+    (29) parking_command -> . PARK SEMICOLON
+    (30) parking_command -> . EXIT SEMICOLON
+    (31) parking_command -> . SENSOR SEMICOLON
+    (32) return_statement -> . RETURN expression SEMICOLON
+    (33) print_statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (13) type_specifier -> . INT
+    (14) type_specifier -> . FLOAT
+    (15) type_specifier -> . BOOLEAN
+    (16) type_specifier -> . STRING
+
+    END             shift and go to state 28
+    SEMICOLON       shift and go to state 7
+    IDENTIFIER      shift and go to state 14
+    IF              shift and go to state 15
+    FOR             shift and go to state 16
+    GATE            shift and go to state 17
+    ONOFF           shift and go to state 18
+    PARK            shift and go to state 19
+    EXIT            shift and go to state 20
+    SENSOR          shift and go to state 21
+    RETURN          shift and go to state 22
+    PRINT           shift and go to state 23
+    INT             shift and go to state 24
+    FLOAT           shift and go to state 25
+    BOOLEAN         shift and go to state 26
+    STRING          shift and go to state 27
+
+    statement                      shift and go to state 29
+    declaration                    shift and go to state 5
+    assignment_expression          shift and go to state 6
+    if_statement                   shift and go to state 8
+    for_statement                  shift and go to state 9
+    parking_command                shift and go to state 10
+    return_statement               shift and go to state 11
+    print_statement                shift and go to state 12
+    type_specifier                 shift and go to state 13
+
+state 4
+
+    (3) statement_list -> statement .
+
+    END             reduce using rule 3 (statement_list -> statement .)
+    SEMICOLON       reduce using rule 3 (statement_list -> statement .)
+    IDENTIFIER      reduce using rule 3 (statement_list -> statement .)
+    IF              reduce using rule 3 (statement_list -> statement .)
+    FOR             reduce using rule 3 (statement_list -> statement .)
+    GATE            reduce using rule 3 (statement_list -> statement .)
+    ONOFF           reduce using rule 3 (statement_list -> statement .)
+    PARK            reduce using rule 3 (statement_list -> statement .)
+    EXIT            reduce using rule 3 (statement_list -> statement .)
+    SENSOR          reduce using rule 3 (statement_list -> statement .)
+    RETURN          reduce using rule 3 (statement_list -> statement .)
+    PRINT           reduce using rule 3 (statement_list -> statement .)
+    INT             reduce using rule 3 (statement_list -> statement .)
+    FLOAT           reduce using rule 3 (statement_list -> statement .)
+    BOOLEAN         reduce using rule 3 (statement_list -> statement .)
+    STRING          reduce using rule 3 (statement_list -> statement .)
+    RBRACE          reduce using rule 3 (statement_list -> statement .)
+
+
+state 5
+
+    (4) statement -> declaration .
+
+    END             reduce using rule 4 (statement -> declaration .)
+    SEMICOLON       reduce using rule 4 (statement -> declaration .)
+    IDENTIFIER      reduce using rule 4 (statement -> declaration .)
+    IF              reduce using rule 4 (statement -> declaration .)
+    FOR             reduce using rule 4 (statement -> declaration .)
+    GATE            reduce using rule 4 (statement -> declaration .)
+    ONOFF           reduce using rule 4 (statement -> declaration .)
+    PARK            reduce using rule 4 (statement -> declaration .)
+    EXIT            reduce using rule 4 (statement -> declaration .)
+    SENSOR          reduce using rule 4 (statement -> declaration .)
+    RETURN          reduce using rule 4 (statement -> declaration .)
+    PRINT           reduce using rule 4 (statement -> declaration .)
+    INT             reduce using rule 4 (statement -> declaration .)
+    FLOAT           reduce using rule 4 (statement -> declaration .)
+    BOOLEAN         reduce using rule 4 (statement -> declaration .)
+    STRING          reduce using rule 4 (statement -> declaration .)
+    RBRACE          reduce using rule 4 (statement -> declaration .)
+
+
+state 6
+
+    (5) statement -> assignment_expression . SEMICOLON
+
+    SEMICOLON       shift and go to state 30
+
+
+state 7
+
+    (11) statement -> SEMICOLON .
+
+    END             reduce using rule 11 (statement -> SEMICOLON .)
+    SEMICOLON       reduce using rule 11 (statement -> SEMICOLON .)
+    IDENTIFIER      reduce using rule 11 (statement -> SEMICOLON .)
+    IF              reduce using rule 11 (statement -> SEMICOLON .)
+    FOR             reduce using rule 11 (statement -> SEMICOLON .)
+    GATE            reduce using rule 11 (statement -> SEMICOLON .)
+    ONOFF           reduce using rule 11 (statement -> SEMICOLON .)
+    PARK            reduce using rule 11 (statement -> SEMICOLON .)
+    EXIT            reduce using rule 11 (statement -> SEMICOLON .)
+    SENSOR          reduce using rule 11 (statement -> SEMICOLON .)
+    RETURN          reduce using rule 11 (statement -> SEMICOLON .)
+    PRINT           reduce using rule 11 (statement -> SEMICOLON .)
+    INT             reduce using rule 11 (statement -> SEMICOLON .)
+    FLOAT           reduce using rule 11 (statement -> SEMICOLON .)
+    BOOLEAN         reduce using rule 11 (statement -> SEMICOLON .)
+    STRING          reduce using rule 11 (statement -> SEMICOLON .)
+    RBRACE          reduce using rule 11 (statement -> SEMICOLON .)
+
+
+state 8
+
+    (6) statement -> if_statement .
+
+    END             reduce using rule 6 (statement -> if_statement .)
+    SEMICOLON       reduce using rule 6 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 6 (statement -> if_statement .)
+    IF              reduce using rule 6 (statement -> if_statement .)
+    FOR             reduce using rule 6 (statement -> if_statement .)
+    GATE            reduce using rule 6 (statement -> if_statement .)
+    ONOFF           reduce using rule 6 (statement -> if_statement .)
+    PARK            reduce using rule 6 (statement -> if_statement .)
+    EXIT            reduce using rule 6 (statement -> if_statement .)
+    SENSOR          reduce using rule 6 (statement -> if_statement .)
+    RETURN          reduce using rule 6 (statement -> if_statement .)
+    PRINT           reduce using rule 6 (statement -> if_statement .)
+    INT             reduce using rule 6 (statement -> if_statement .)
+    FLOAT           reduce using rule 6 (statement -> if_statement .)
+    BOOLEAN         reduce using rule 6 (statement -> if_statement .)
+    STRING          reduce using rule 6 (statement -> if_statement .)
+    RBRACE          reduce using rule 6 (statement -> if_statement .)
+
+
+state 9
+
+    (7) statement -> for_statement .
+
+    END             reduce using rule 7 (statement -> for_statement .)
+    SEMICOLON       reduce using rule 7 (statement -> for_statement .)
+    IDENTIFIER      reduce using rule 7 (statement -> for_statement .)
+    IF              reduce using rule 7 (statement -> for_statement .)
+    FOR             reduce using rule 7 (statement -> for_statement .)
+    GATE            reduce using rule 7 (statement -> for_statement .)
+    ONOFF           reduce using rule 7 (statement -> for_statement .)
+    PARK            reduce using rule 7 (statement -> for_statement .)
+    EXIT            reduce using rule 7 (statement -> for_statement .)
+    SENSOR          reduce using rule 7 (statement -> for_statement .)
+    RETURN          reduce using rule 7 (statement -> for_statement .)
+    PRINT           reduce using rule 7 (statement -> for_statement .)
+    INT             reduce using rule 7 (statement -> for_statement .)
+    FLOAT           reduce using rule 7 (statement -> for_statement .)
+    BOOLEAN         reduce using rule 7 (statement -> for_statement .)
+    STRING          reduce using rule 7 (statement -> for_statement .)
+    RBRACE          reduce using rule 7 (statement -> for_statement .)
+
+
+state 10
+
+    (8) statement -> parking_command .
+
+    END             reduce using rule 8 (statement -> parking_command .)
+    SEMICOLON       reduce using rule 8 (statement -> parking_command .)
+    IDENTIFIER      reduce using rule 8 (statement -> parking_command .)
+    IF              reduce using rule 8 (statement -> parking_command .)
+    FOR             reduce using rule 8 (statement -> parking_command .)
+    GATE            reduce using rule 8 (statement -> parking_command .)
+    ONOFF           reduce using rule 8 (statement -> parking_command .)
+    PARK            reduce using rule 8 (statement -> parking_command .)
+    EXIT            reduce using rule 8 (statement -> parking_command .)
+    SENSOR          reduce using rule 8 (statement -> parking_command .)
+    RETURN          reduce using rule 8 (statement -> parking_command .)
+    PRINT           reduce using rule 8 (statement -> parking_command .)
+    INT             reduce using rule 8 (statement -> parking_command .)
+    FLOAT           reduce using rule 8 (statement -> parking_command .)
+    BOOLEAN         reduce using rule 8 (statement -> parking_command .)
+    STRING          reduce using rule 8 (statement -> parking_command .)
+    RBRACE          reduce using rule 8 (statement -> parking_command .)
+
+
+state 11
+
+    (9) statement -> return_statement .
+
+    END             reduce using rule 9 (statement -> return_statement .)
+    SEMICOLON       reduce using rule 9 (statement -> return_statement .)
+    IDENTIFIER      reduce using rule 9 (statement -> return_statement .)
+    IF              reduce using rule 9 (statement -> return_statement .)
+    FOR             reduce using rule 9 (statement -> return_statement .)
+    GATE            reduce using rule 9 (statement -> return_statement .)
+    ONOFF           reduce using rule 9 (statement -> return_statement .)
+    PARK            reduce using rule 9 (statement -> return_statement .)
+    EXIT            reduce using rule 9 (statement -> return_statement .)
+    SENSOR          reduce using rule 9 (statement -> return_statement .)
+    RETURN          reduce using rule 9 (statement -> return_statement .)
+    PRINT           reduce using rule 9 (statement -> return_statement .)
+    INT             reduce using rule 9 (statement -> return_statement .)
+    FLOAT           reduce using rule 9 (statement -> return_statement .)
+    BOOLEAN         reduce using rule 9 (statement -> return_statement .)
+    STRING          reduce using rule 9 (statement -> return_statement .)
+    RBRACE          reduce using rule 9 (statement -> return_statement .)
+
+
+state 12
+
+    (10) statement -> print_statement .
+
+    END             reduce using rule 10 (statement -> print_statement .)
+    SEMICOLON       reduce using rule 10 (statement -> print_statement .)
+    IDENTIFIER      reduce using rule 10 (statement -> print_statement .)
+    IF              reduce using rule 10 (statement -> print_statement .)
+    FOR             reduce using rule 10 (statement -> print_statement .)
+    GATE            reduce using rule 10 (statement -> print_statement .)
+    ONOFF           reduce using rule 10 (statement -> print_statement .)
+    PARK            reduce using rule 10 (statement -> print_statement .)
+    EXIT            reduce using rule 10 (statement -> print_statement .)
+    SENSOR          reduce using rule 10 (statement -> print_statement .)
+    RETURN          reduce using rule 10 (statement -> print_statement .)
+    PRINT           reduce using rule 10 (statement -> print_statement .)
+    INT             reduce using rule 10 (statement -> print_statement .)
+    FLOAT           reduce using rule 10 (statement -> print_statement .)
+    BOOLEAN         reduce using rule 10 (statement -> print_statement .)
+    STRING          reduce using rule 10 (statement -> print_statement .)
+    RBRACE          reduce using rule 10 (statement -> print_statement .)
+
+
+state 13
+
+    (12) declaration -> type_specifier . IDENTIFIER SEMICOLON
+
+    IDENTIFIER      shift and go to state 31
+
+
+state 14
+
+    (17) assignment_expression -> IDENTIFIER . EQUALS expression
+
+    EQUALS          shift and go to state 32
+
+
+state 15
+
+    (18) if_statement -> IF . LPAREN expression RPAREN compound_statement
+    (19) if_statement -> IF . LPAREN expression RPAREN compound_statement ELSE compound_statement
+
+    LPAREN          shift and go to state 33
+
+
+state 16
+
+    (20) for_statement -> FOR . LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+
+    LPAREN          shift and go to state 34
+
+
+state 17
+
+    (26) parking_command -> GATE . OPEN SEMICOLON
+    (27) parking_command -> GATE . CLOSE SEMICOLON
+
+    OPEN            shift and go to state 35
+    CLOSE           shift and go to state 36
+
+
+state 18
+
+    (28) parking_command -> ONOFF . SEMICOLON
+
+    SEMICOLON       shift and go to state 37
+
+
+state 19
+
+    (29) parking_command -> PARK . SEMICOLON
+
+    SEMICOLON       shift and go to state 38
+
+
+state 20
+
+    (30) parking_command -> EXIT . SEMICOLON
+
+    SEMICOLON       shift and go to state 39
+
+
+state 21
+
+    (31) parking_command -> SENSOR . SEMICOLON
+
+    SEMICOLON       shift and go to state 40
+
+
+state 22
+
+    (32) return_statement -> RETURN . expression SEMICOLON
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression                     shift and go to state 41
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 23
+
+    (33) print_statement -> PRINT . LPAREN expression RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 52
+
+
+state 24
+
+    (13) type_specifier -> INT .
+
+    IDENTIFIER      reduce using rule 13 (type_specifier -> INT .)
+
+
+state 25
+
+    (14) type_specifier -> FLOAT .
+
+    IDENTIFIER      reduce using rule 14 (type_specifier -> FLOAT .)
+
+
+state 26
+
+    (15) type_specifier -> BOOLEAN .
+
+    IDENTIFIER      reduce using rule 15 (type_specifier -> BOOLEAN .)
+
+
+state 27
+
+    (16) type_specifier -> STRING .
+
+    IDENTIFIER      reduce using rule 16 (type_specifier -> STRING .)
+
+
+state 28
+
+    (1) program -> BEGIN statement_list END .
+
+    $end            reduce using rule 1 (program -> BEGIN statement_list END .)
+
+
+state 29
+
+    (2) statement_list -> statement_list statement .
+
+    END             reduce using rule 2 (statement_list -> statement_list statement .)
+    SEMICOLON       reduce using rule 2 (statement_list -> statement_list statement .)
+    IDENTIFIER      reduce using rule 2 (statement_list -> statement_list statement .)
+    IF              reduce using rule 2 (statement_list -> statement_list statement .)
+    FOR             reduce using rule 2 (statement_list -> statement_list statement .)
+    GATE            reduce using rule 2 (statement_list -> statement_list statement .)
+    ONOFF           reduce using rule 2 (statement_list -> statement_list statement .)
+    PARK            reduce using rule 2 (statement_list -> statement_list statement .)
+    EXIT            reduce using rule 2 (statement_list -> statement_list statement .)
+    SENSOR          reduce using rule 2 (statement_list -> statement_list statement .)
+    RETURN          reduce using rule 2 (statement_list -> statement_list statement .)
+    PRINT           reduce using rule 2 (statement_list -> statement_list statement .)
+    INT             reduce using rule 2 (statement_list -> statement_list statement .)
+    FLOAT           reduce using rule 2 (statement_list -> statement_list statement .)
+    BOOLEAN         reduce using rule 2 (statement_list -> statement_list statement .)
+    STRING          reduce using rule 2 (statement_list -> statement_list statement .)
+    RBRACE          reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 30
+
+    (5) statement -> assignment_expression SEMICOLON .
+
+    END             reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    SEMICOLON       reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    IF              reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    FOR             reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    GATE            reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    ONOFF           reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    PARK            reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    EXIT            reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    SENSOR          reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    RETURN          reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    PRINT           reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    INT             reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    FLOAT           reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    BOOLEAN         reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    STRING          reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+    RBRACE          reduce using rule 5 (statement -> assignment_expression SEMICOLON .)
+
+
+state 31
+
+    (12) declaration -> type_specifier IDENTIFIER . SEMICOLON
+
+    SEMICOLON       shift and go to state 53
+
+
+state 32
+
+    (17) assignment_expression -> IDENTIFIER EQUALS . expression
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression                     shift and go to state 54
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 33
+
+    (18) if_statement -> IF LPAREN . expression RPAREN compound_statement
+    (19) if_statement -> IF LPAREN . expression RPAREN compound_statement ELSE compound_statement
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression                     shift and go to state 55
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 34
+
+    (20) for_statement -> FOR LPAREN . assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (23) assignment_expression_opt -> . assignment_expression
+    (24) assignment_expression_opt -> . empty
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (25) empty -> .
+
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+    IDENTIFIER      shift and go to state 14
+    BOOLEAN_LITERAL reduce using rule 25 (empty -> .)
+    STRING_LITERAL  reduce using rule 25 (empty -> .)
+    NUMBER          reduce using rule 25 (empty -> .)
+    FLOAT_NUMBER    reduce using rule 25 (empty -> .)
+    LPAREN          reduce using rule 25 (empty -> .)
+    SEMICOLON       reduce using rule 25 (empty -> .)
+
+  ! IDENTIFIER      [ reduce using rule 25 (empty -> .) ]
+
+    assignment_expression_opt      shift and go to state 56
+    assignment_expression          shift and go to state 57
+    empty                          shift and go to state 58
+
+state 35
+
+    (26) parking_command -> GATE OPEN . SEMICOLON
+
+    SEMICOLON       shift and go to state 59
+
+
+state 36
+
+    (27) parking_command -> GATE CLOSE . SEMICOLON
+
+    SEMICOLON       shift and go to state 60
+
+
+state 37
+
+    (28) parking_command -> ONOFF SEMICOLON .
+
+    END             reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    SEMICOLON       reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    IDENTIFIER      reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    IF              reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    FOR             reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    GATE            reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    ONOFF           reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    PARK            reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    EXIT            reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    SENSOR          reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    RETURN          reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    PRINT           reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    INT             reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    FLOAT           reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    BOOLEAN         reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    STRING          reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+    RBRACE          reduce using rule 28 (parking_command -> ONOFF SEMICOLON .)
+
+
+state 38
+
+    (29) parking_command -> PARK SEMICOLON .
+
+    END             reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    SEMICOLON       reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    IDENTIFIER      reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    IF              reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    FOR             reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    GATE            reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    ONOFF           reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    PARK            reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    EXIT            reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    SENSOR          reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    RETURN          reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    PRINT           reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    INT             reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    FLOAT           reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    BOOLEAN         reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    STRING          reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+    RBRACE          reduce using rule 29 (parking_command -> PARK SEMICOLON .)
+
+
+state 39
+
+    (30) parking_command -> EXIT SEMICOLON .
+
+    END             reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    SEMICOLON       reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    IDENTIFIER      reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    IF              reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    FOR             reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    GATE            reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    ONOFF           reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    PARK            reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    EXIT            reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    SENSOR          reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    RETURN          reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    PRINT           reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    INT             reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    FLOAT           reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    BOOLEAN         reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    STRING          reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+    RBRACE          reduce using rule 30 (parking_command -> EXIT SEMICOLON .)
+
+
+state 40
+
+    (31) parking_command -> SENSOR SEMICOLON .
+
+    END             reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    SEMICOLON       reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    IDENTIFIER      reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    IF              reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    FOR             reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    GATE            reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    ONOFF           reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    PARK            reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    EXIT            reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    SENSOR          reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    RETURN          reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    PRINT           reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    INT             reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    FLOAT           reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    BOOLEAN         reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    STRING          reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+    RBRACE          reduce using rule 31 (parking_command -> SENSOR SEMICOLON .)
+
+
+state 41
+
+    (32) return_statement -> RETURN expression . SEMICOLON
+
+    SEMICOLON       shift and go to state 61
+
+
+state 42
+
+    (34) expression -> additive_expression .
+    (46) additive_expression -> additive_expression . PLUS multiplicative_expression
+    (47) additive_expression -> additive_expression . MINUS multiplicative_expression
+    (38) relational_expression -> additive_expression . relational_op additive_expression
+    (39) relational_op -> . LT
+    (40) relational_op -> . LE
+    (41) relational_op -> . GT
+    (42) relational_op -> . GE
+    (43) relational_op -> . EQ
+    (44) relational_op -> . NE
+
+    SEMICOLON       reduce using rule 34 (expression -> additive_expression .)
+    BOOLEAN_LITERAL reduce using rule 34 (expression -> additive_expression .)
+    STRING_LITERAL  reduce using rule 34 (expression -> additive_expression .)
+    IDENTIFIER      reduce using rule 34 (expression -> additive_expression .)
+    NUMBER          reduce using rule 34 (expression -> additive_expression .)
+    FLOAT_NUMBER    reduce using rule 34 (expression -> additive_expression .)
+    LPAREN          reduce using rule 34 (expression -> additive_expression .)
+    RPAREN          reduce using rule 34 (expression -> additive_expression .)
+    PLUS            shift and go to state 62
+    MINUS           shift and go to state 63
+    LT              shift and go to state 65
+    LE              shift and go to state 66
+    GT              shift and go to state 67
+    GE              shift and go to state 68
+    EQ              shift and go to state 69
+    NE              shift and go to state 70
+
+    relational_op                  shift and go to state 64
+
+state 43
+
+    (35) expression -> relational_expression .
+
+    SEMICOLON       reduce using rule 35 (expression -> relational_expression .)
+    BOOLEAN_LITERAL reduce using rule 35 (expression -> relational_expression .)
+    STRING_LITERAL  reduce using rule 35 (expression -> relational_expression .)
+    IDENTIFIER      reduce using rule 35 (expression -> relational_expression .)
+    NUMBER          reduce using rule 35 (expression -> relational_expression .)
+    FLOAT_NUMBER    reduce using rule 35 (expression -> relational_expression .)
+    LPAREN          reduce using rule 35 (expression -> relational_expression .)
+    RPAREN          reduce using rule 35 (expression -> relational_expression .)
+
+
+state 44
+
+    (36) expression -> BOOLEAN_LITERAL .
+    (54) primary_expression -> BOOLEAN_LITERAL .
+
+  ! reduce/reduce conflict for SEMICOLON resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for BOOLEAN_LITERAL resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for STRING_LITERAL resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for IDENTIFIER resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for FLOAT_NUMBER resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for LPAREN resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 36 (expression -> BOOLEAN_LITERAL .)
+    SEMICOLON       reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    BOOLEAN_LITERAL reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    STRING_LITERAL  reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    IDENTIFIER      reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    NUMBER          reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    FLOAT_NUMBER    reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    LPAREN          reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    RPAREN          reduce using rule 36 (expression -> BOOLEAN_LITERAL .)
+    TIMES           reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    DIVIDE          reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    PLUS            reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    MINUS           reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    LT              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    LE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    GT              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    GE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    EQ              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    NE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+
+  ! SEMICOLON       [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! BOOLEAN_LITERAL [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! STRING_LITERAL  [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! IDENTIFIER      [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! NUMBER          [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! FLOAT_NUMBER    [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! LPAREN          [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+  ! RPAREN          [ reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .) ]
+
+
+state 45
+
+    (37) expression -> STRING_LITERAL .
+    (55) primary_expression -> STRING_LITERAL .
+
+  ! reduce/reduce conflict for SEMICOLON resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for BOOLEAN_LITERAL resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for STRING_LITERAL resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for IDENTIFIER resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for FLOAT_NUMBER resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for LPAREN resolved using rule 37 (expression -> STRING_LITERAL .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 37 (expression -> STRING_LITERAL .)
+    SEMICOLON       reduce using rule 37 (expression -> STRING_LITERAL .)
+    BOOLEAN_LITERAL reduce using rule 37 (expression -> STRING_LITERAL .)
+    STRING_LITERAL  reduce using rule 37 (expression -> STRING_LITERAL .)
+    IDENTIFIER      reduce using rule 37 (expression -> STRING_LITERAL .)
+    NUMBER          reduce using rule 37 (expression -> STRING_LITERAL .)
+    FLOAT_NUMBER    reduce using rule 37 (expression -> STRING_LITERAL .)
+    LPAREN          reduce using rule 37 (expression -> STRING_LITERAL .)
+    RPAREN          reduce using rule 37 (expression -> STRING_LITERAL .)
+    TIMES           reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    DIVIDE          reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    PLUS            reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    MINUS           reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    LT              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    LE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    GT              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    GE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    EQ              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    NE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+
+  ! SEMICOLON       [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! BOOLEAN_LITERAL [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! STRING_LITERAL  [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! IDENTIFIER      [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! NUMBER          [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! FLOAT_NUMBER    [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! LPAREN          [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+  ! RPAREN          [ reduce using rule 55 (primary_expression -> STRING_LITERAL .) ]
+
+
+state 46
+
+    (45) additive_expression -> multiplicative_expression .
+    (49) multiplicative_expression -> multiplicative_expression . TIMES primary_expression
+    (50) multiplicative_expression -> multiplicative_expression . DIVIDE primary_expression
+
+    PLUS            reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    MINUS           reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    LT              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    LE              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    GT              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    GE              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    EQ              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    NE              reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    SEMICOLON       reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    BOOLEAN_LITERAL reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    STRING_LITERAL  reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    IDENTIFIER      reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    NUMBER          reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    FLOAT_NUMBER    reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    LPAREN          reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    RPAREN          reduce using rule 45 (additive_expression -> multiplicative_expression .)
+    TIMES           shift and go to state 71
+    DIVIDE          shift and go to state 72
+
+
+state 47
+
+    (48) multiplicative_expression -> primary_expression .
+
+    TIMES           reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    DIVIDE          reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    PLUS            reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    MINUS           reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    LT              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    LE              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    GT              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    GE              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    EQ              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    NE              reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    SEMICOLON       reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    BOOLEAN_LITERAL reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    STRING_LITERAL  reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    IDENTIFIER      reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    NUMBER          reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    FLOAT_NUMBER    reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    LPAREN          reduce using rule 48 (multiplicative_expression -> primary_expression .)
+    RPAREN          reduce using rule 48 (multiplicative_expression -> primary_expression .)
+
+
+state 48
+
+    (51) primary_expression -> IDENTIFIER .
+
+    TIMES           reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    PLUS            reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    MINUS           reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    LT              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    LE              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    GT              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    GE              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    EQ              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    NE              reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    BOOLEAN_LITERAL reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    STRING_LITERAL  reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    NUMBER          reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    FLOAT_NUMBER    reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    LPAREN          reduce using rule 51 (primary_expression -> IDENTIFIER .)
+    RPAREN          reduce using rule 51 (primary_expression -> IDENTIFIER .)
+
+
+state 49
+
+    (52) primary_expression -> NUMBER .
+
+    TIMES           reduce using rule 52 (primary_expression -> NUMBER .)
+    DIVIDE          reduce using rule 52 (primary_expression -> NUMBER .)
+    PLUS            reduce using rule 52 (primary_expression -> NUMBER .)
+    MINUS           reduce using rule 52 (primary_expression -> NUMBER .)
+    LT              reduce using rule 52 (primary_expression -> NUMBER .)
+    LE              reduce using rule 52 (primary_expression -> NUMBER .)
+    GT              reduce using rule 52 (primary_expression -> NUMBER .)
+    GE              reduce using rule 52 (primary_expression -> NUMBER .)
+    EQ              reduce using rule 52 (primary_expression -> NUMBER .)
+    NE              reduce using rule 52 (primary_expression -> NUMBER .)
+    SEMICOLON       reduce using rule 52 (primary_expression -> NUMBER .)
+    BOOLEAN_LITERAL reduce using rule 52 (primary_expression -> NUMBER .)
+    STRING_LITERAL  reduce using rule 52 (primary_expression -> NUMBER .)
+    IDENTIFIER      reduce using rule 52 (primary_expression -> NUMBER .)
+    NUMBER          reduce using rule 52 (primary_expression -> NUMBER .)
+    FLOAT_NUMBER    reduce using rule 52 (primary_expression -> NUMBER .)
+    LPAREN          reduce using rule 52 (primary_expression -> NUMBER .)
+    RPAREN          reduce using rule 52 (primary_expression -> NUMBER .)
+
+
+state 50
+
+    (53) primary_expression -> FLOAT_NUMBER .
+
+    TIMES           reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    DIVIDE          reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    PLUS            reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    MINUS           reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    LT              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    LE              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    GT              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    GE              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    EQ              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    NE              reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    SEMICOLON       reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    BOOLEAN_LITERAL reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    STRING_LITERAL  reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    IDENTIFIER      reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    NUMBER          reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    FLOAT_NUMBER    reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    LPAREN          reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+    RPAREN          reduce using rule 53 (primary_expression -> FLOAT_NUMBER .)
+
+
+state 51
+
+    (56) primary_expression -> LPAREN . expression RPAREN
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression                     shift and go to state 73
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 52
+
+    (33) print_statement -> PRINT LPAREN . expression RPAREN SEMICOLON
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression                     shift and go to state 74
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 53
+
+    (12) declaration -> type_specifier IDENTIFIER SEMICOLON .
+
+    END             reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    SEMICOLON       reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    IF              reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    FOR             reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    GATE            reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    ONOFF           reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    PARK            reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    EXIT            reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    SENSOR          reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    RETURN          reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    PRINT           reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    INT             reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    FLOAT           reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    BOOLEAN         reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    STRING          reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+    RBRACE          reduce using rule 12 (declaration -> type_specifier IDENTIFIER SEMICOLON .)
+
+
+state 54
+
+    (17) assignment_expression -> IDENTIFIER EQUALS expression .
+
+    SEMICOLON       reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    BOOLEAN_LITERAL reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    STRING_LITERAL  reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    IDENTIFIER      reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    NUMBER          reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    FLOAT_NUMBER    reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    LPAREN          reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+    RPAREN          reduce using rule 17 (assignment_expression -> IDENTIFIER EQUALS expression .)
+
+
+state 55
+
+    (18) if_statement -> IF LPAREN expression . RPAREN compound_statement
+    (19) if_statement -> IF LPAREN expression . RPAREN compound_statement ELSE compound_statement
+
+    RPAREN          shift and go to state 75
+
+
+state 56
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt . expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (21) expression_opt -> . expression
+    (22) expression_opt -> . empty
+    (34) expression -> . additive_expression
+    (35) expression -> . relational_expression
+    (36) expression -> . BOOLEAN_LITERAL
+    (37) expression -> . STRING_LITERAL
+    (25) empty -> .
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (38) relational_expression -> . additive_expression relational_op additive_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    BOOLEAN_LITERAL shift and go to state 44
+    STRING_LITERAL  shift and go to state 45
+    SEMICOLON       reduce using rule 25 (empty -> .)
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    LPAREN          shift and go to state 51
+
+    expression_opt                 shift and go to state 76
+    expression                     shift and go to state 77
+    empty                          shift and go to state 78
+    additive_expression            shift and go to state 42
+    relational_expression          shift and go to state 43
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 57
+
+    (23) assignment_expression_opt -> assignment_expression .
+
+    BOOLEAN_LITERAL reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    STRING_LITERAL  reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    IDENTIFIER      reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    NUMBER          reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    FLOAT_NUMBER    reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    LPAREN          reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    SEMICOLON       reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+    RPAREN          reduce using rule 23 (assignment_expression_opt -> assignment_expression .)
+
+
+state 58
+
+    (24) assignment_expression_opt -> empty .
+
+    BOOLEAN_LITERAL reduce using rule 24 (assignment_expression_opt -> empty .)
+    STRING_LITERAL  reduce using rule 24 (assignment_expression_opt -> empty .)
+    IDENTIFIER      reduce using rule 24 (assignment_expression_opt -> empty .)
+    NUMBER          reduce using rule 24 (assignment_expression_opt -> empty .)
+    FLOAT_NUMBER    reduce using rule 24 (assignment_expression_opt -> empty .)
+    LPAREN          reduce using rule 24 (assignment_expression_opt -> empty .)
+    SEMICOLON       reduce using rule 24 (assignment_expression_opt -> empty .)
+    RPAREN          reduce using rule 24 (assignment_expression_opt -> empty .)
+
+
+state 59
+
+    (26) parking_command -> GATE OPEN SEMICOLON .
+
+    END             reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    SEMICOLON       reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    IDENTIFIER      reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    IF              reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    FOR             reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    GATE            reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    ONOFF           reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    PARK            reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    EXIT            reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    SENSOR          reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    RETURN          reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    PRINT           reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    INT             reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    FLOAT           reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    BOOLEAN         reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    STRING          reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+    RBRACE          reduce using rule 26 (parking_command -> GATE OPEN SEMICOLON .)
+
+
+state 60
+
+    (27) parking_command -> GATE CLOSE SEMICOLON .
+
+    END             reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    SEMICOLON       reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    IDENTIFIER      reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    IF              reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    FOR             reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    GATE            reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    ONOFF           reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    PARK            reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    EXIT            reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    SENSOR          reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    RETURN          reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    PRINT           reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    INT             reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    FLOAT           reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    BOOLEAN         reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    STRING          reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+    RBRACE          reduce using rule 27 (parking_command -> GATE CLOSE SEMICOLON .)
+
+
+state 61
+
+    (32) return_statement -> RETURN expression SEMICOLON .
+
+    END             reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    SEMICOLON       reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    IF              reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    FOR             reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    GATE            reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    ONOFF           reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    PARK            reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    EXIT            reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    SENSOR          reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    RETURN          reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    PRINT           reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    INT             reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    FLOAT           reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    BOOLEAN         reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    STRING          reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+    RBRACE          reduce using rule 32 (return_statement -> RETURN expression SEMICOLON .)
+
+
+state 62
+
+    (46) additive_expression -> additive_expression PLUS . multiplicative_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    BOOLEAN_LITERAL shift and go to state 80
+    STRING_LITERAL  shift and go to state 81
+    LPAREN          shift and go to state 51
+
+    multiplicative_expression      shift and go to state 79
+    primary_expression             shift and go to state 47
+
+state 63
+
+    (47) additive_expression -> additive_expression MINUS . multiplicative_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    BOOLEAN_LITERAL shift and go to state 80
+    STRING_LITERAL  shift and go to state 81
+    LPAREN          shift and go to state 51
+
+    multiplicative_expression      shift and go to state 82
+    primary_expression             shift and go to state 47
+
+state 64
+
+    (38) relational_expression -> additive_expression relational_op . additive_expression
+    (45) additive_expression -> . multiplicative_expression
+    (46) additive_expression -> . additive_expression PLUS multiplicative_expression
+    (47) additive_expression -> . additive_expression MINUS multiplicative_expression
+    (48) multiplicative_expression -> . primary_expression
+    (49) multiplicative_expression -> . multiplicative_expression TIMES primary_expression
+    (50) multiplicative_expression -> . multiplicative_expression DIVIDE primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    BOOLEAN_LITERAL shift and go to state 80
+    STRING_LITERAL  shift and go to state 81
+    LPAREN          shift and go to state 51
+
+    additive_expression            shift and go to state 83
+    multiplicative_expression      shift and go to state 46
+    primary_expression             shift and go to state 47
+
+state 65
+
+    (39) relational_op -> LT .
+
+    IDENTIFIER      reduce using rule 39 (relational_op -> LT .)
+    NUMBER          reduce using rule 39 (relational_op -> LT .)
+    FLOAT_NUMBER    reduce using rule 39 (relational_op -> LT .)
+    BOOLEAN_LITERAL reduce using rule 39 (relational_op -> LT .)
+    STRING_LITERAL  reduce using rule 39 (relational_op -> LT .)
+    LPAREN          reduce using rule 39 (relational_op -> LT .)
+
+
+state 66
+
+    (40) relational_op -> LE .
+
+    IDENTIFIER      reduce using rule 40 (relational_op -> LE .)
+    NUMBER          reduce using rule 40 (relational_op -> LE .)
+    FLOAT_NUMBER    reduce using rule 40 (relational_op -> LE .)
+    BOOLEAN_LITERAL reduce using rule 40 (relational_op -> LE .)
+    STRING_LITERAL  reduce using rule 40 (relational_op -> LE .)
+    LPAREN          reduce using rule 40 (relational_op -> LE .)
+
+
+state 67
+
+    (41) relational_op -> GT .
+
+    IDENTIFIER      reduce using rule 41 (relational_op -> GT .)
+    NUMBER          reduce using rule 41 (relational_op -> GT .)
+    FLOAT_NUMBER    reduce using rule 41 (relational_op -> GT .)
+    BOOLEAN_LITERAL reduce using rule 41 (relational_op -> GT .)
+    STRING_LITERAL  reduce using rule 41 (relational_op -> GT .)
+    LPAREN          reduce using rule 41 (relational_op -> GT .)
+
+
+state 68
+
+    (42) relational_op -> GE .
+
+    IDENTIFIER      reduce using rule 42 (relational_op -> GE .)
+    NUMBER          reduce using rule 42 (relational_op -> GE .)
+    FLOAT_NUMBER    reduce using rule 42 (relational_op -> GE .)
+    BOOLEAN_LITERAL reduce using rule 42 (relational_op -> GE .)
+    STRING_LITERAL  reduce using rule 42 (relational_op -> GE .)
+    LPAREN          reduce using rule 42 (relational_op -> GE .)
+
+
+state 69
+
+    (43) relational_op -> EQ .
+
+    IDENTIFIER      reduce using rule 43 (relational_op -> EQ .)
+    NUMBER          reduce using rule 43 (relational_op -> EQ .)
+    FLOAT_NUMBER    reduce using rule 43 (relational_op -> EQ .)
+    BOOLEAN_LITERAL reduce using rule 43 (relational_op -> EQ .)
+    STRING_LITERAL  reduce using rule 43 (relational_op -> EQ .)
+    LPAREN          reduce using rule 43 (relational_op -> EQ .)
+
+
+state 70
+
+    (44) relational_op -> NE .
+
+    IDENTIFIER      reduce using rule 44 (relational_op -> NE .)
+    NUMBER          reduce using rule 44 (relational_op -> NE .)
+    FLOAT_NUMBER    reduce using rule 44 (relational_op -> NE .)
+    BOOLEAN_LITERAL reduce using rule 44 (relational_op -> NE .)
+    STRING_LITERAL  reduce using rule 44 (relational_op -> NE .)
+    LPAREN          reduce using rule 44 (relational_op -> NE .)
+
+
+state 71
+
+    (49) multiplicative_expression -> multiplicative_expression TIMES . primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    BOOLEAN_LITERAL shift and go to state 80
+    STRING_LITERAL  shift and go to state 81
+    LPAREN          shift and go to state 51
+
+    primary_expression             shift and go to state 84
+
+state 72
+
+    (50) multiplicative_expression -> multiplicative_expression DIVIDE . primary_expression
+    (51) primary_expression -> . IDENTIFIER
+    (52) primary_expression -> . NUMBER
+    (53) primary_expression -> . FLOAT_NUMBER
+    (54) primary_expression -> . BOOLEAN_LITERAL
+    (55) primary_expression -> . STRING_LITERAL
+    (56) primary_expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 48
+    NUMBER          shift and go to state 49
+    FLOAT_NUMBER    shift and go to state 50
+    BOOLEAN_LITERAL shift and go to state 80
+    STRING_LITERAL  shift and go to state 81
+    LPAREN          shift and go to state 51
+
+    primary_expression             shift and go to state 85
+
+state 73
+
+    (56) primary_expression -> LPAREN expression . RPAREN
+
+    RPAREN          shift and go to state 86
+
+
+state 74
+
+    (33) print_statement -> PRINT LPAREN expression . RPAREN SEMICOLON
+
+    RPAREN          shift and go to state 87
+
+
+state 75
+
+    (18) if_statement -> IF LPAREN expression RPAREN . compound_statement
+    (19) if_statement -> IF LPAREN expression RPAREN . compound_statement ELSE compound_statement
+    (57) compound_statement -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 89
+
+    compound_statement             shift and go to state 88
+
+state 76
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt expression_opt . SEMICOLON assignment_expression_opt RPAREN compound_statement
+
+    SEMICOLON       shift and go to state 90
+
+
+state 77
+
+    (21) expression_opt -> expression .
+
+    SEMICOLON       reduce using rule 21 (expression_opt -> expression .)
+
+
+state 78
+
+    (22) expression_opt -> empty .
+
+    SEMICOLON       reduce using rule 22 (expression_opt -> empty .)
+
+
+state 79
+
+    (46) additive_expression -> additive_expression PLUS multiplicative_expression .
+    (49) multiplicative_expression -> multiplicative_expression . TIMES primary_expression
+    (50) multiplicative_expression -> multiplicative_expression . DIVIDE primary_expression
+
+    PLUS            reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    MINUS           reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    LT              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    LE              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    GT              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    GE              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    EQ              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    NE              reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    SEMICOLON       reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    BOOLEAN_LITERAL reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    STRING_LITERAL  reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    IDENTIFIER      reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    NUMBER          reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    FLOAT_NUMBER    reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    LPAREN          reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    RPAREN          reduce using rule 46 (additive_expression -> additive_expression PLUS multiplicative_expression .)
+    TIMES           shift and go to state 71
+    DIVIDE          shift and go to state 72
+
+
+state 80
+
+    (54) primary_expression -> BOOLEAN_LITERAL .
+
+    TIMES           reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    DIVIDE          reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    PLUS            reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    MINUS           reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    LT              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    LE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    GT              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    GE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    EQ              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    NE              reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    SEMICOLON       reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    BOOLEAN_LITERAL reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    STRING_LITERAL  reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    IDENTIFIER      reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    NUMBER          reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    FLOAT_NUMBER    reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    LPAREN          reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+    RPAREN          reduce using rule 54 (primary_expression -> BOOLEAN_LITERAL .)
+
+
+state 81
+
+    (55) primary_expression -> STRING_LITERAL .
+
+    TIMES           reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    DIVIDE          reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    PLUS            reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    MINUS           reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    LT              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    LE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    GT              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    GE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    EQ              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    NE              reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    SEMICOLON       reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    BOOLEAN_LITERAL reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    STRING_LITERAL  reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    IDENTIFIER      reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    NUMBER          reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    FLOAT_NUMBER    reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    LPAREN          reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+    RPAREN          reduce using rule 55 (primary_expression -> STRING_LITERAL .)
+
+
+state 82
+
+    (47) additive_expression -> additive_expression MINUS multiplicative_expression .
+    (49) multiplicative_expression -> multiplicative_expression . TIMES primary_expression
+    (50) multiplicative_expression -> multiplicative_expression . DIVIDE primary_expression
+
+    PLUS            reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    MINUS           reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    LT              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    LE              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    GT              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    GE              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    EQ              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    NE              reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    SEMICOLON       reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    BOOLEAN_LITERAL reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    STRING_LITERAL  reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    IDENTIFIER      reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    NUMBER          reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    FLOAT_NUMBER    reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    LPAREN          reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    RPAREN          reduce using rule 47 (additive_expression -> additive_expression MINUS multiplicative_expression .)
+    TIMES           shift and go to state 71
+    DIVIDE          shift and go to state 72
+
+
+state 83
+
+    (38) relational_expression -> additive_expression relational_op additive_expression .
+    (46) additive_expression -> additive_expression . PLUS multiplicative_expression
+    (47) additive_expression -> additive_expression . MINUS multiplicative_expression
+
+    SEMICOLON       reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    BOOLEAN_LITERAL reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    STRING_LITERAL  reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    IDENTIFIER      reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    NUMBER          reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    FLOAT_NUMBER    reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    LPAREN          reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    RPAREN          reduce using rule 38 (relational_expression -> additive_expression relational_op additive_expression .)
+    PLUS            shift and go to state 62
+    MINUS           shift and go to state 63
+
+
+state 84
+
+    (49) multiplicative_expression -> multiplicative_expression TIMES primary_expression .
+
+    TIMES           reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    DIVIDE          reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    PLUS            reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    MINUS           reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    LT              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    LE              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    GT              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    GE              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    EQ              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    NE              reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    SEMICOLON       reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    BOOLEAN_LITERAL reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    STRING_LITERAL  reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    IDENTIFIER      reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    NUMBER          reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    FLOAT_NUMBER    reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    LPAREN          reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+    RPAREN          reduce using rule 49 (multiplicative_expression -> multiplicative_expression TIMES primary_expression .)
+
+
+state 85
+
+    (50) multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .
+
+    TIMES           reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    DIVIDE          reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    PLUS            reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    MINUS           reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    LT              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    LE              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    GT              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    GE              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    EQ              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    NE              reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    SEMICOLON       reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    BOOLEAN_LITERAL reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    STRING_LITERAL  reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    IDENTIFIER      reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    NUMBER          reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    FLOAT_NUMBER    reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    LPAREN          reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+    RPAREN          reduce using rule 50 (multiplicative_expression -> multiplicative_expression DIVIDE primary_expression .)
+
+
+state 86
+
+    (56) primary_expression -> LPAREN expression RPAREN .
+
+    TIMES           reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    LT              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    LE              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    GT              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    GE              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    EQ              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    NE              reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    SEMICOLON       reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    BOOLEAN_LITERAL reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    STRING_LITERAL  reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    IDENTIFIER      reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    FLOAT_NUMBER    reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 56 (primary_expression -> LPAREN expression RPAREN .)
+
+
+state 87
+
+    (33) print_statement -> PRINT LPAREN expression RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 91
+
+
+state 88
+
+    (18) if_statement -> IF LPAREN expression RPAREN compound_statement .
+    (19) if_statement -> IF LPAREN expression RPAREN compound_statement . ELSE compound_statement
+
+    END             reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    SEMICOLON       reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    IF              reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    FOR             reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    GATE            reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    ONOFF           reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    PARK            reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    EXIT            reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    SENSOR          reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    RETURN          reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    PRINT           reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    INT             reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    FLOAT           reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    BOOLEAN         reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    STRING          reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    RBRACE          reduce using rule 18 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    ELSE            shift and go to state 92
+
+
+state 89
+
+    (57) compound_statement -> LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment_expression SEMICOLON
+    (6) statement -> . if_statement
+    (7) statement -> . for_statement
+    (8) statement -> . parking_command
+    (9) statement -> . return_statement
+    (10) statement -> . print_statement
+    (11) statement -> . SEMICOLON
+    (12) declaration -> . type_specifier IDENTIFIER SEMICOLON
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (18) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (19) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (20) for_statement -> . FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (26) parking_command -> . GATE OPEN SEMICOLON
+    (27) parking_command -> . GATE CLOSE SEMICOLON
+    (28) parking_command -> . ONOFF SEMICOLON
+    (29) parking_command -> . PARK SEMICOLON
+    (30) parking_command -> . EXIT SEMICOLON
+    (31) parking_command -> . SENSOR SEMICOLON
+    (32) return_statement -> . RETURN expression SEMICOLON
+    (33) print_statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (13) type_specifier -> . INT
+    (14) type_specifier -> . FLOAT
+    (15) type_specifier -> . BOOLEAN
+    (16) type_specifier -> . STRING
+
+    SEMICOLON       shift and go to state 7
+    IDENTIFIER      shift and go to state 14
+    IF              shift and go to state 15
+    FOR             shift and go to state 16
+    GATE            shift and go to state 17
+    ONOFF           shift and go to state 18
+    PARK            shift and go to state 19
+    EXIT            shift and go to state 20
+    SENSOR          shift and go to state 21
+    RETURN          shift and go to state 22
+    PRINT           shift and go to state 23
+    INT             shift and go to state 24
+    FLOAT           shift and go to state 25
+    BOOLEAN         shift and go to state 26
+    STRING          shift and go to state 27
+
+    statement_list                 shift and go to state 93
+    statement                      shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment_expression          shift and go to state 6
+    if_statement                   shift and go to state 8
+    for_statement                  shift and go to state 9
+    parking_command                shift and go to state 10
+    return_statement               shift and go to state 11
+    print_statement                shift and go to state 12
+    type_specifier                 shift and go to state 13
+
+state 90
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON . assignment_expression_opt RPAREN compound_statement
+    (23) assignment_expression_opt -> . assignment_expression
+    (24) assignment_expression_opt -> . empty
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (25) empty -> .
+
+    IDENTIFIER      shift and go to state 14
+    RPAREN          reduce using rule 25 (empty -> .)
+
+    assignment_expression_opt      shift and go to state 94
+    assignment_expression          shift and go to state 57
+    empty                          shift and go to state 58
+
+state 91
+
+    (33) print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .
+
+    END             reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    SEMICOLON       reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    IF              reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    FOR             reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    GATE            reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    ONOFF           reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    PARK            reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    EXIT            reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    SENSOR          reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    RETURN          reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    PRINT           reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    INT             reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    FLOAT           reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    BOOLEAN         reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    STRING          reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 33 (print_statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+
+
+state 92
+
+    (19) if_statement -> IF LPAREN expression RPAREN compound_statement ELSE . compound_statement
+    (57) compound_statement -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 89
+
+    compound_statement             shift and go to state 95
+
+state 93
+
+    (57) compound_statement -> LBRACE statement_list . RBRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment_expression SEMICOLON
+    (6) statement -> . if_statement
+    (7) statement -> . for_statement
+    (8) statement -> . parking_command
+    (9) statement -> . return_statement
+    (10) statement -> . print_statement
+    (11) statement -> . SEMICOLON
+    (12) declaration -> . type_specifier IDENTIFIER SEMICOLON
+    (17) assignment_expression -> . IDENTIFIER EQUALS expression
+    (18) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (19) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (20) for_statement -> . FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement
+    (26) parking_command -> . GATE OPEN SEMICOLON
+    (27) parking_command -> . GATE CLOSE SEMICOLON
+    (28) parking_command -> . ONOFF SEMICOLON
+    (29) parking_command -> . PARK SEMICOLON
+    (30) parking_command -> . EXIT SEMICOLON
+    (31) parking_command -> . SENSOR SEMICOLON
+    (32) return_statement -> . RETURN expression SEMICOLON
+    (33) print_statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (13) type_specifier -> . INT
+    (14) type_specifier -> . FLOAT
+    (15) type_specifier -> . BOOLEAN
+    (16) type_specifier -> . STRING
+
+    RBRACE          shift and go to state 96
+    SEMICOLON       shift and go to state 7
+    IDENTIFIER      shift and go to state 14
+    IF              shift and go to state 15
+    FOR             shift and go to state 16
+    GATE            shift and go to state 17
+    ONOFF           shift and go to state 18
+    PARK            shift and go to state 19
+    EXIT            shift and go to state 20
+    SENSOR          shift and go to state 21
+    RETURN          shift and go to state 22
+    PRINT           shift and go to state 23
+    INT             shift and go to state 24
+    FLOAT           shift and go to state 25
+    BOOLEAN         shift and go to state 26
+    STRING          shift and go to state 27
+
+    statement                      shift and go to state 29
+    declaration                    shift and go to state 5
+    assignment_expression          shift and go to state 6
+    if_statement                   shift and go to state 8
+    for_statement                  shift and go to state 9
+    parking_command                shift and go to state 10
+    return_statement               shift and go to state 11
+    print_statement                shift and go to state 12
+    type_specifier                 shift and go to state 13
+
+state 94
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt . RPAREN compound_statement
+
+    RPAREN          shift and go to state 97
+
+
+state 95
+
+    (19) if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .
+
+    END             reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    SEMICOLON       reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    IDENTIFIER      reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    IF              reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    FOR             reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    GATE            reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    ONOFF           reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    PARK            reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    EXIT            reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    SENSOR          reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    RETURN          reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    PRINT           reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    INT             reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    FLOAT           reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    BOOLEAN         reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    STRING          reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    RBRACE          reduce using rule 19 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+
+
+state 96
+
+    (57) compound_statement -> LBRACE statement_list RBRACE .
+
+    ELSE            reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    END             reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    SEMICOLON       reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    IDENTIFIER      reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    FOR             reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    GATE            reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    ONOFF           reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    PARK            reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    EXIT            reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    SENSOR          reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    RETURN          reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    PRINT           reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    INT             reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    FLOAT           reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    BOOLEAN         reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    STRING          reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 57 (compound_statement -> LBRACE statement_list RBRACE .)
+
+
+state 97
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN . compound_statement
+    (57) compound_statement -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 89
+
+    compound_statement             shift and go to state 98
+
+state 98
+
+    (20) for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .
+
+    END             reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    SEMICOLON       reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    IF              reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    FOR             reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    GATE            reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    ONOFF           reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    PARK            reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    EXIT            reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    SENSOR          reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    RETURN          reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    PRINT           reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    INT             reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    FLOAT           reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    BOOLEAN         reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    STRING          reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+    RBRACE          reduce using rule 20 (for_statement -> FOR LPAREN assignment_expression_opt expression_opt SEMICOLON assignment_expression_opt RPAREN compound_statement .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for IDENTIFIER in state 34 resolved as shift
+WARNING: reduce/reduce conflict in state 44 resolved using rule (expression -> BOOLEAN_LITERAL)
+WARNING: rejected rule (primary_expression -> BOOLEAN_LITERAL) in state 44
+WARNING: reduce/reduce conflict in state 45 resolved using rule (expression -> STRING_LITERAL)
+WARNING: rejected rule (primary_expression -> STRING_LITERAL) in state 45

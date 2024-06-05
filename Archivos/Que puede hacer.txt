@@ -1,0 +1,28 @@
+Funcionalidades Actuales del Compilador
+El compilador actualmente implementa varias funcionalidades clave para un lenguaje de programación específico orientado a controlar un estacionamiento automatizado. A continuación se detallan las características implementadas:
+
+Análisis Léxico:
+
+Reconocimiento de palabras reservadas (int, float, boolean, if, else, return, true, false, begin, end, etc.).
+Manejo de identificadores, números enteros (int), números flotantes (float), y literales booleanos (true y false).
+Reconocimiento de operadores aritméticos y de comparación (+, -, *, /, ==, !=, <, <=, >, >=).
+Soporte para comentarios de una línea y de múltiples líneas.
+Análisis Sintáctico:
+
+Manejo de estructuras de control (if, else).
+Declaración y asignación de variables (int, float, boolean).
+Manejo de comandos específicos para el control del estacionamiento (onoff, park, exit, sensor, gate open, gate close).
+Soporte para expresiones aritméticas y de comparación.
+Manejo de bloques de código (begin y end).
+Análisis Semántico:
+
+Verificación de declaración de variables antes de su uso.
+Verificación de inicialización de variables antes de su uso.
+Comprobación de compatibilidad de tipos en las operaciones aritméticas y de comparación.
+Inclusión de números de línea en los mensajes de error para facilitar la depuración.
+Interfaz Gráfica:
+
+Editor de código con numeración de líneas y resaltado de sintaxis.
+Consola de salida para mostrar errores léxicos, sintácticos y semánticos.
+Barra de herramientas con opciones para cargar, guardar, analizar código, y mostrar gráficos.
+Funcionalidades de zoom in y zoom out en el editor de texto.

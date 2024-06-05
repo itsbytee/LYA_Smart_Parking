@@ -1,0 +1,4 @@
+begin
+    int a;
+    print(a);
+end

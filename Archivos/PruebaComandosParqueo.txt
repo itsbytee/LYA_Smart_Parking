@@ -1,0 +1,8 @@
+begin
+    gate open;
+    gate close;
+    onoff;
+    park;
+    exit;
+    sensor;
+end

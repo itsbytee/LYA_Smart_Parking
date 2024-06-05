@@ -1,0 +1,10 @@
+begin
+    int a;
+    float b;
+    boolean c;
+    string d;
+    a = 10;
+    b = 20.5;
+    c = true;
+    d = "Hello World";
+end

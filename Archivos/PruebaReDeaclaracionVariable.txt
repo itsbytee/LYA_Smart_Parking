@@ -1,0 +1,4 @@
+begin
+    int a;
+    int a;
+end

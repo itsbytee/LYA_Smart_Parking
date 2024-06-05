@@ -1,0 +1,9 @@
+begin
+    int x;
+    x = 5;
+    if (x > 3) {
+        print("x es mayor que 3");
+    } else {
+        print("x es menor o igual a 3");
+    }
+end
